@@ -1,34 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Interest Rate Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        Interest Rate Calculator
+        <h1 class="title">Interest Rate Calculator</h1>
+        <p class="subtitle">Calculate simple interest on your investment</p>
+        
         <div class="input-wrapper">
             <div class="wrapper">
-                <label for="principal">Principal Amount</label>
-                <input type="number" id="principal" value="1000" />
+                <label for="principal"><i class="fas fa-money-bill-wave"></i>Principal Amount</label>
+                <div class="input-container">
+                    <i class="fas fa-dollar-sign"></i>
+                    <input type="number" id="principal" placeholder="1000" min="1" step="any" />
+                    <span class="unit">USD</span>
+                </div>
             </div>
         </div>
+        
         <div class="input-wrapper">
             <div class="wrapper">
-                <label for="rate">Rate (%)</label>
-                <input type="number" id="rate" value="5" />
+                <label for="rate"><i class="fas fa-chart-line"></i>Interest Rate</label>
+                <div class="input-container">
+                    <i class="fas fa-percent"></i>
+                    <input type="number" id="rate" placeholder="5" min="0.1" step="0.1" />
+                    <span class="unit">% per year</span>
+                </div>
             </div>
         </div>
+        
         <div class="input-wrapper">
             <div class="wrapper">
-                <label for="time">Time (Years)</label>
-                <input type="number" id="time" value="1" />
+                <label for="time"><i class="fas fa-clock"></i>Time Period</label>
+                <div class="input-container">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="number" id="time" placeholder="1" min="0.1" step="0.1" />
+                    <span class="unit">Years</span>
+                </div>
             </div>
         </div>
-        <button id="calculate-btn" onclick="calculate()">Calculate</button>
-        <div id="result"></div>
+        
+        <button id="calculate-btn" onclick="calculate()">
+            <i class="fas fa-calculator"></i> Calculate Interest
+        </button>
+        
+        <div id="result">
+            <div class="result-title">Calculation Result</div>
+            <div class="result-amount" id="total-amount"></div>
+            <div class="result-details">
+                <div class="detail-box">
+                    <div class="detail-title">Principal Amount</div>
+                    <div class="detail-value" id="principal-display"></div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-title">Interest Earned</div>
+                    <div class="detail-value interest-earned" id="interest-earned"></div>
+                </div>
+                <div class="detail-box">
+                    <div class="detail-title">Total Amount</div>
+                    <div class="detail-value total-amount" id="total-display"></div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="reset-btn" onclick="resetCalculator()">
+            <i class="fas fa-redo"></i> Reset Calculator
+        </button>
+        
+        <div class="footer">
+            <i class="far fa-copyright"></i> 2023 Interest Calculator | Simple Interest Formula: I = P × R × T
+        </div>
     </div>
-</body>
 
+    <script src="script.js"></script>
+</body>
 </html>
